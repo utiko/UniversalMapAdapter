@@ -58,9 +58,44 @@ class UMAMapView: UMAMapViewBase {
         }
     }
     
+    // MARK: Annotations
+    
+    private var _annotations: Array <UMAMapViewAnnotation> = []
+    private var _annptationIDs: Set <String> = []
+    
+    public var annotations: Array<UMAMapViewAnnotation> {
+        get {
+            return _annotations
+        }
+    }
+    
+    public func addAnnotation(_ annotation: UMAMapViewAnnotation) {
+        self.addSingleAnnotation(annotation)
+        self.annotationsDidChange()
+    }
+    
+    public func addAnnotations(_ annotations: [UMAMapViewAnnotation]) {
+        for annotation in annotations {
+            self.addSingleAnnotation(annotation)
+        }
+        self.annotationsDidChange()
+    }
+    
+    private func addSingleAnnotation(_ annotation: UMAMapViewAnnotation) {
+        if let annotationID = annotation.uniqueID {
+            if _annptationIDs .contains(annotationID) {
+                return
+            }
+        }
+    }
+    
+    private func annotationsDidChange() {
+        
+    }
+    
     // MARK: Visible region
 
-    var zoomLevel: Float {
+    public var zoomLevel: Float {
         get {
             switch mapProvider {
             case .mapKit:
@@ -80,7 +115,7 @@ class UMAMapView: UMAMapViewBase {
         }
     }
     
-    var centerCoordinate: CLLocationCoordinate2D {
+    public var centerCoordinate: CLLocationCoordinate2D {
         get {
             switch mapProvider {
             case .mapKit:
@@ -100,7 +135,7 @@ class UMAMapView: UMAMapViewBase {
         }
     }
     
-    func setCenter(centerCoordinate: CLLocationCoordinate2D, zoomLevel: Float, animated: Bool) {
+    public func setCenter(centerCoordinate: CLLocationCoordinate2D, zoomLevel: Float, animated: Bool) {
         switch mapProvider {
         case .mapKit:
             if self.mapViewMK != nil {
@@ -122,7 +157,7 @@ class UMAMapView: UMAMapViewBase {
         }
     }
 
-    func setCenter(centerCoordinate: CLLocationCoordinate2D, animated: Bool) {
+    public func setCenter(centerCoordinate: CLLocationCoordinate2D, animated: Bool) {
         switch mapProvider {
         case .mapKit:
             self.mapViewMK?.setCenter(centerCoordinate, animated: animated)
@@ -212,6 +247,7 @@ protocol UMAMapViewDelegate: class {
 }
 
 protocol UMAMapViewAnnotation {
-    
+    var coordinate: CLLocationCoordinate2D { get set }
+    var uniqueID: String? { get set }
 }
 

@@ -150,7 +150,7 @@
         <!--Map Box Try View Controller-->
         <scene sceneID="ias-zo-HlM">
             <objects>
-                <viewController id="dpT-hi-jEG" customClass="MapBoxTryViewController" customModule="UniversalMapAdapter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dpT-hi-jEG" customClass="MapBoxTryViewController" customModule="UniversalMapAdapter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yy7-L1-7PK"/>
                         <viewControllerLayoutGuide type="bottom" id="BxK-aH-jhp"/>
@@ -183,7 +183,7 @@
         <!--UMA Test-->
         <scene sceneID="lVO-tI-J67">
             <objects>
-                <viewController id="Dg8-nr-hf8" customClass="UMATestViewController" customModule="UniversalMapAdapter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Dg8-nr-hf8" customClass="UMATestViewController" customModule="UniversalMapAdapter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qmW-OO-ywb"/>
                         <viewControllerLayoutGuide type="bottom" id="BIc-11-E5j"/>
@@ -193,16 +193,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHT-R5-NgP" customClass="UMAMapView" customModule="UniversalMapAdapter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pHT-R5-NgP" secondAttribute="bottom" id="FXZ-im-jLq"/>
-                            <constraint firstItem="pHT-R5-NgP" firstAttribute="top" secondItem="rUt-p8-has" secondAttribute="top" id="nzZ-FZ-Bp1"/>
                             <constraint firstItem="pHT-R5-NgP" firstAttribute="leading" secondItem="rUt-p8-has" secondAttribute="leading" id="oje-O6-nw1"/>
                             <constraint firstAttribute="trailing" secondItem="pHT-R5-NgP" secondAttribute="trailing" id="wVQ-py-6ZV"/>
+                            <constraint firstItem="pHT-R5-NgP" firstAttribute="top" secondItem="qmW-OO-ywb" secondAttribute="bottom" id="xdQ-a0-bfy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="UMA Test" id="5Er-Wo-ADH">
@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34k-tA-BZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="1000"/>
+            <point key="canvasLocation" x="1053.5999999999999" y="999.85007496251887"/>
         </scene>
         <!--Map Kit Try View Controller-->
         <scene sceneID="Xsr-Yu-sSx">
@@ -257,7 +257,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B4a-lQ-tNM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gtV-og-oek">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gtV-og-oek">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
