@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class UMATestViewController: UIViewController {
 
@@ -14,9 +15,13 @@ class UMATestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.setCenter(centerCoordinate: CLLocationCoordinate2DMake(49.8416929, 24.0295891), zoomLevel: 16, animated: false)
 
-        self.mapView.mapProvider = .mapKit
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {

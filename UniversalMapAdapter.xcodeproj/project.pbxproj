@@ -18,6 +18,9 @@
 		3D9E70391F2CDD1F008047C8 /* MapKitTryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E70381F2CDD1F008047C8 /* MapKitTryViewController.swift */; };
 		3D9E703B1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E703A1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift */; };
 		3D9E703D1F2CDD3B008047C8 /* MapBoxTryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E703C1F2CDD3B008047C8 /* MapBoxTryViewController.swift */; };
+		3DDF98361F2F9212007F6445 /* UMAMapView+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF98351F2F9212007F6445 /* UMAMapView+MapKit.swift */; };
+		3DDF98381F2F9228007F6445 /* UMAMapView+GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF98371F2F9228007F6445 /* UMAMapView+GoogleMaps.swift */; };
+		3DDF983A1F2F9232007F6445 /* UMAMapView+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF98391F2F9232007F6445 /* UMAMapView+MapBox.swift */; };
 		3DF60DC41F2CEC2200A9D701 /* UMATestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF60DC31F2CEC2200A9D701 /* UMATestViewController.swift */; };
 		4355006560D112E5C3937B03 /* Pods_UniversalMapAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497B2C5A2C98EF2FE2055CC0 /* Pods_UniversalMapAdapter.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,9 @@
 		3D9E70381F2CDD1F008047C8 /* MapKitTryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitTryViewController.swift; sourceTree = "<group>"; };
 		3D9E703A1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsTryViewController.swift; sourceTree = "<group>"; };
 		3D9E703C1F2CDD3B008047C8 /* MapBoxTryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapBoxTryViewController.swift; sourceTree = "<group>"; };
+		3DDF98351F2F9212007F6445 /* UMAMapView+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UMAMapView+MapKit.swift"; sourceTree = "<group>"; };
+		3DDF98371F2F9228007F6445 /* UMAMapView+GoogleMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UMAMapView+GoogleMaps.swift"; sourceTree = "<group>"; };
+		3DDF98391F2F9232007F6445 /* UMAMapView+MapBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UMAMapView+MapBox.swift"; sourceTree = "<group>"; };
 		3DF60DC31F2CEC2200A9D701 /* UMATestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UMATestViewController.swift; sourceTree = "<group>"; };
 		4311EBB954EC6C4AC835B709 /* Pods-UniversalMapAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalMapAdapter.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniversalMapAdapter/Pods-UniversalMapAdapter.release.xcconfig"; sourceTree = "<group>"; };
 		497B2C5A2C98EF2FE2055CC0 /* Pods_UniversalMapAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalMapAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				3D9E70351F2CD70A008047C8 /* UMAMapView.swift */,
+				3DDF98351F2F9212007F6445 /* UMAMapView+MapKit.swift */,
+				3DDF98371F2F9228007F6445 /* UMAMapView+GoogleMaps.swift */,
+				3DDF98391F2F9232007F6445 /* UMAMapView+MapBox.swift */,
 			);
 			name = UMA;
 			path = UniversalMapAdapter;
@@ -262,8 +271,11 @@
 				3D9E70391F2CDD1F008047C8 /* MapKitTryViewController.swift in Sources */,
 				3D9E703D1F2CDD3B008047C8 /* MapBoxTryViewController.swift in Sources */,
 				3DF60DC41F2CEC2200A9D701 /* UMATestViewController.swift in Sources */,
+				3DDF983A1F2F9232007F6445 /* UMAMapView+MapBox.swift in Sources */,
+				3DDF98381F2F9228007F6445 /* UMAMapView+GoogleMaps.swift in Sources */,
 				3D9E70251F2CD5B0008047C8 /* MainViewController.swift in Sources */,
 				3D9E70231F2CD5B0008047C8 /* AppDelegate.swift in Sources */,
+				3DDF98361F2F9212007F6445 /* UMAMapView+MapKit.swift in Sources */,
 				3D9E703B1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift in Sources */,
 				3D9E70361F2CD70A008047C8 /* UMAMapView.swift in Sources */,
 				3D9C9A351F2F1FBE008F79F0 /* PrivateKeyService.swift in Sources */,

@@ -8,9 +8,10 @@
 
 import UIKit
 
-import MapKit
+//import MapKit
 import Mapbox
 import GoogleMaps
+
 
 enum UMAMapProvider {
     case mapKit
@@ -20,13 +21,16 @@ enum UMAMapProvider {
 
 
 class UMAMapViewBase: UIView {
-    fileprivate dynamic func mapKitLayoutSubview() { }
-    fileprivate dynamic func googleMapsLayoutSubview() {}
-    fileprivate dynamic func mapBoxLayoutSubview() {}
+    dynamic func mapKitLayoutSubview() { }
+    dynamic func googleMapsLayoutSubview() {}
+    dynamic func mapBoxLayoutSubview() {}
 }
 
 class UMAMapView: UMAMapViewBase {
     public weak var delegate: UMAMapViewDelegate?
+    
+    
+    // MARK: Map provider
     
     private var _mapProvider: UMAMapProvider = .mapKit
     public var mapProvider: UMAMapProvider  {
@@ -42,10 +46,45 @@ class UMAMapView: UMAMapViewBase {
         }
     }
 
-    fileprivate var mapViewMK: MKMapView?
-    fileprivate var mapViewGM: GMSMapView?
-    fileprivate var mapViewMB: MGLMapView?
+    
+    // MARK: Map Views
+    var _mapViewMK: UIView?
+    
+    private var _mapViewGM: GMSMapView?
+    var mapViewGM: GMSMapView {
+        get {
+            if (_mapViewGM == nil) {
+                _mapViewGM = GMSMapView()
+                self.addSubview(_mapViewGM!)
+            }
+            return _mapViewGM!
+        }
+    }
+    private var _mapViewMB: MGLMapView?
+    var mapViewMB: MGLMapView {
+        get {
+            if (_mapViewMB == nil) {
+                _mapViewMB = MGLMapView()
+                self.addSubview(_mapViewMB!)
+            }
+            return _mapViewMB!
+        }
+    }
 
+    func cleanupMapViews() {
+        if self.mapProvider != .mapKit, _mapViewMK != nil {
+            _mapViewMK!.removeFromSuperview()
+            _mapViewMK = nil
+        }
+        if self.mapProvider != .googleMap, _mapViewGM != nil {
+            _mapViewGM!.removeFromSuperview()
+            _mapViewGM = nil
+        }
+        if self.mapProvider != .mapBox, _mapViewMB != nil {
+            _mapViewMB!.removeFromSuperview()
+            _mapViewMB = nil
+        }
+    }
     
     override func layoutSubviews() {
         switch mapProvider {
@@ -60,28 +99,28 @@ class UMAMapView: UMAMapViewBase {
     
     // MARK: Annotations
     
-    private var _annotations: Array <UMAMapViewAnnotation> = []
+    private var _annotations: Array <UMAAnnotation> = []
     private var _annptationIDs: Set <String> = []
     
-    public var annotations: Array<UMAMapViewAnnotation> {
+    public var annotations: Array<UMAAnnotation> {
         get {
             return _annotations
         }
     }
     
-    public func addAnnotation(_ annotation: UMAMapViewAnnotation) {
+    public func addAnnotation(_ annotation: UMAAnnotation) {
         self.addSingleAnnotation(annotation)
         self.annotationsDidChange()
     }
     
-    public func addAnnotations(_ annotations: [UMAMapViewAnnotation]) {
+    public func addAnnotations(_ annotations: [UMAAnnotation]) {
         for annotation in annotations {
             self.addSingleAnnotation(annotation)
         }
         self.annotationsDidChange()
     }
     
-    private func addSingleAnnotation(_ annotation: UMAMapViewAnnotation) {
+    private func addSingleAnnotation(_ annotation: UMAAnnotation) {
         if let annotationID = annotation.uniqueID {
             if _annptationIDs .contains(annotationID) {
                 return
@@ -93,25 +132,35 @@ class UMAMapView: UMAMapViewBase {
         
     }
     
+    // MARK: Customize annotations
+    
+    public func dequeueReusableAnnotationView(withIdentifier identifier: String) -> UMAAnotationView? {
+        switch mapProvider {
+        case .mapKit:
+            let annotationView = self.mapViewMK.dequeueReusableAnnotationView(withIdentifier: identifier)
+            if let annotationViewAdapter = annotationView as? UMAMapKitAnnotationViewAdapter {
+                return annotationViewAdapter.annotationView
+            }
+        case .googleMap:
+            self.googleMapsLayoutSubview()
+        case .mapBox:
+            self.mapBoxLayoutSubview()
+        }
+        return nil
+    }
+    
     // MARK: Visible region
 
     public var zoomLevel: Float {
         get {
             switch mapProvider {
             case .mapKit:
-                if self.mapViewMK != nil {
-                    return log2(360 * (Float(self.mapViewMK!.frame.size.width/256) / Float(self.mapViewMK!.region.span.longitudeDelta)));
-                }
+                return log2(360 * (Float(self.mapViewMK.frame.size.width/256) / Float(self.mapViewMK.region.span.longitudeDelta)));
             case .googleMap:
-                if self.mapViewGM != nil {
-                    return self.mapViewGM!.camera.zoom
-                }
+                return self.mapViewGM.camera.zoom
             case .mapBox:
-                if self.mapViewMB != nil {
-                    return Float(self.mapViewMB!.zoomLevel + 1.0)
-                }
+                return Float(self.mapViewMB.zoomLevel + 1.0)
             }
-            return 1.0
         }
     }
     
@@ -119,58 +168,42 @@ class UMAMapView: UMAMapViewBase {
         get {
             switch mapProvider {
             case .mapKit:
-                if self.mapViewMK != nil {
-                    return self.mapViewMK!.centerCoordinate;
-                }
+                return self.mapViewMK.centerCoordinate;
             case .googleMap:
-                if self.mapViewGM != nil {
-                    return self.mapViewGM!.camera.target;
-                }
+                return self.mapViewGM.camera.target;
             case .mapBox:
-                if self.mapViewMB != nil {
-                    return self.mapViewMB!.centerCoordinate;
-                }
+                return self.mapViewMB.centerCoordinate;
             }
-            return CLLocationCoordinate2DMake(0, 0)
         }
     }
     
     public func setCenter(centerCoordinate: CLLocationCoordinate2D, zoomLevel: Float, animated: Bool) {
         switch mapProvider {
         case .mapKit:
-            if self.mapViewMK != nil {
-                let span = MKCoordinateSpanMake(0, Double(360/pow(2, zoomLevel) * Float(self.frame.size.width/256)))
-                let region  = MKCoordinateRegion(center: centerCoordinate, span: span)
-                self.mapViewMK?.setRegion(region, animated: animated)
-            }
-            self.mapViewMK?.setCenter(centerCoordinate, animated: animated)
+            self.setCenterMK(centerCoordinate: centerCoordinate, zoomLevel: zoomLevel, animated: animated)
         case .googleMap:
-            if self.mapViewGM != nil{
-                if animated {
-                    self.mapViewGM!.animate(to: GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: zoomLevel))
-                } else {
-                    self.mapViewGM!.camera = GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: zoomLevel)
-                }
+            if animated {
+                self.mapViewGM.animate(to: GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: zoomLevel))
+            } else {
+                self.mapViewGM.camera = GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: zoomLevel)
             }
         case .mapBox:
-            self.mapViewMB?.setCenter(centerCoordinate, zoomLevel:Double(zoomLevel - 1), animated: animated)
+            self.mapViewMB.setCenter(centerCoordinate, zoomLevel:Double(zoomLevel - 1), animated: animated)
         }
     }
 
     public func setCenter(centerCoordinate: CLLocationCoordinate2D, animated: Bool) {
         switch mapProvider {
         case .mapKit:
-            self.mapViewMK?.setCenter(centerCoordinate, animated: animated)
+            self.mapViewMK.setCenter(centerCoordinate, animated: animated)
         case .googleMap:
-            if self.mapViewGM != nil{
-                if animated {
-                    self.mapViewGM!.animate(toLocation: centerCoordinate)
-                } else {
-                    self.mapViewGM!.camera = GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: self.mapViewGM!.camera.zoom)
-                }
+            if animated {
+                self.mapViewGM.animate(toLocation: centerCoordinate)
+            } else {
+                self.mapViewGM.camera = GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: self.mapViewGM.camera.zoom)
             }
         case .mapBox:
-            self.mapViewMB?.setCenter(centerCoordinate, animated: animated)
+            self.mapViewMB.setCenter(centerCoordinate, animated: animated)
         }
     }
     
@@ -179,75 +212,90 @@ class UMAMapView: UMAMapViewBase {
 
 
 
-// MARK: MapKit
-extension UMAMapView {
-    
-    override func mapKitLayoutSubview() {
-        if mapViewMK == nil {
-            mapViewMK = MKMapView()
-            self.addSubview(mapViewMK!)
-        }
-        mapViewMK?.frame = self.bounds
-        
-        if mapViewGM != nil {
-            mapViewGM?.removeFromSuperview()
-            mapViewGM = nil
-        }
-        if mapViewMB != nil {
-            mapViewMB?.removeFromSuperview()
-            mapViewMB = nil
-        }
-    }
-}
-
-// MARK: GoogleMaps
-extension UMAMapView {
-    override func googleMapsLayoutSubview() {
-
-        if mapViewGM == nil {
-            mapViewGM = GMSMapView()
-            self.addSubview(mapViewGM!)
-        }
-        mapViewGM?.frame = self.bounds
-        
-        if mapViewMK != nil {
-            mapViewMK?.removeFromSuperview()
-            mapViewMK = nil
-        }
-        if mapViewMB != nil {
-            mapViewMB?.removeFromSuperview()
-            mapViewMB = nil
-        }
-    }
-}
-
-// MARK: MapBox
-extension UMAMapView {
-    override func mapBoxLayoutSubview() {
-        if mapViewMB == nil {
-            mapViewMB = MGLMapView()
-            self.addSubview(mapViewMB!)
-        }
-        mapViewMB?.frame = self.bounds
-        
-        if mapViewMK != nil {
-            mapViewMK?.removeFromSuperview()
-            mapViewMK = nil
-        }
-        if mapViewGM != nil {
-            mapViewGM?.removeFromSuperview()
-            mapViewGM = nil
-        }
-    }
-}
 
 
 protocol UMAMapViewDelegate: class {
     
+    func mapView(_ mapView: UMAMapView, viewFor annotation: UMAAnnotation) -> UMAAnotationView
+    
 }
 
-protocol UMAMapViewAnnotation {
+/*protocol UMAMapViewClusteringDelegate: class {
+    
+    func mapView(_ mapView: UMAMapView, imageFor cluster: UMAClusterAnnotation)
+    
+}*/
+
+protocol UMAAnnotation {
     var coordinate: CLLocationCoordinate2D { get set }
     var uniqueID: String? { get set }
 }
+
+
+/*class UMAClusterAnnotation: UMAAnnotation {
+    
+    var coordinate: CLLocationCoordinate2D
+    var uniqueID: String?
+    
+    init(coordinate: CLLocationCoordinate2D) {
+        self.coordinate = coordinate
+    }
+    
+}*/
+
+
+class UMAAnotationView: UIView {
+
+    var annotation: UMAAnnotation
+    var reuseIdentifier: String?
+
+    init(annotation: UMAAnnotation) {
+        self.annotation = annotation
+        super.init(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+    }
+    
+    init(annotation: UMAAnnotation, reuseIdentifier: String?) {
+        self.annotation = annotation
+        self.reuseIdentifier = reuseIdentifier
+        super.init(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+    }
+
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+
+    public var image: UIImage? {
+        get {
+            return self.imageView?.image
+        }
+        set (image) {
+            
+            if (image == nil) {
+                if let imageView = self.imageView {
+                    imageView.image = nil
+                    imageView.removeFromSuperview()
+                    self.imageView = nil
+                }
+                return
+            }
+            
+            if (self.imageView == nil) {
+                self.imageView = UIImageView()
+                self.addSubview(self.imageView!)
+            }
+            
+            self.imageView?.image = image
+            self.imageView?.sizeToFit()
+            self.frame = self.imageView!.bounds
+            
+        }
+    }
+    private var imageView: UIImageView?
+}
+
+
+
+
 
