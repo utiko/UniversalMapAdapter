@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import MapKit
+import GoogleMaps
+import Mapbox
 
-class ViewController: UIViewController {
+
+
+
+class MainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,5 +29,12 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+// Mark: table view
+extension MainViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 

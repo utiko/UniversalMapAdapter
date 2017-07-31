@@ -7,21 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D9C9A331F2F1F19008F79F0 /* private-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C9A321F2F1F19008F79F0 /* private-keys.plist */; };
+		3D9C9A351F2F1FBE008F79F0 /* PrivateKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C9A341F2F1FBE008F79F0 /* PrivateKeyService.swift */; };
 		3D9E70231F2CD5B0008047C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E70221F2CD5B0008047C8 /* AppDelegate.swift */; };
-		3D9E70251F2CD5B0008047C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E70241F2CD5B0008047C8 /* ViewController.swift */; };
+		3D9E70251F2CD5B0008047C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E70241F2CD5B0008047C8 /* MainViewController.swift */; };
 		3D9E70281F2CD5B0008047C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9E70261F2CD5B0008047C8 /* Main.storyboard */; };
 		3D9E702A1F2CD5B0008047C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9E70291F2CD5B0008047C8 /* Assets.xcassets */; };
 		3D9E702D1F2CD5B0008047C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9E702B1F2CD5B0008047C8 /* LaunchScreen.storyboard */; };
+		3D9E70361F2CD70A008047C8 /* UMAMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E70351F2CD70A008047C8 /* UMAMapView.swift */; };
+		3D9E70391F2CDD1F008047C8 /* MapKitTryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E70381F2CDD1F008047C8 /* MapKitTryViewController.swift */; };
+		3D9E703B1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E703A1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift */; };
+		3D9E703D1F2CDD3B008047C8 /* MapBoxTryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E703C1F2CDD3B008047C8 /* MapBoxTryViewController.swift */; };
+		3DF60DC41F2CEC2200A9D701 /* UMATestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF60DC31F2CEC2200A9D701 /* UMATestViewController.swift */; };
+		4355006560D112E5C3937B03 /* Pods_UniversalMapAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497B2C5A2C98EF2FE2055CC0 /* Pods_UniversalMapAdapter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D9C9A321F2F1F19008F79F0 /* private-keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "private-keys.plist"; sourceTree = "<group>"; };
+		3D9C9A341F2F1FBE008F79F0 /* PrivateKeyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKeyService.swift; sourceTree = "<group>"; };
 		3D9E701F1F2CD5B0008047C8 /* UniversalMapAdapter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversalMapAdapter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9E70221F2CD5B0008047C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D9E70241F2CD5B0008047C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D9E70241F2CD5B0008047C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D9E70271F2CD5B0008047C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D9E70291F2CD5B0008047C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9E702C1F2CD5B0008047C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9E702E1F2CD5B0008047C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D9E70351F2CD70A008047C8 /* UMAMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UMAMapView.swift; sourceTree = "<group>"; };
+		3D9E70381F2CDD1F008047C8 /* MapKitTryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitTryViewController.swift; sourceTree = "<group>"; };
+		3D9E703A1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsTryViewController.swift; sourceTree = "<group>"; };
+		3D9E703C1F2CDD3B008047C8 /* MapBoxTryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapBoxTryViewController.swift; sourceTree = "<group>"; };
+		3DF60DC31F2CEC2200A9D701 /* UMATestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UMATestViewController.swift; sourceTree = "<group>"; };
+		4311EBB954EC6C4AC835B709 /* Pods-UniversalMapAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalMapAdapter.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniversalMapAdapter/Pods-UniversalMapAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		497B2C5A2C98EF2FE2055CC0 /* Pods_UniversalMapAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalMapAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9AD6E497A1F570DE1F34C56 /* Pods-UniversalMapAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalMapAdapter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniversalMapAdapter/Pods-UniversalMapAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4355006560D112E5C3937B03 /* Pods_UniversalMapAdapter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D9C9A2F1F2F1D11008F79F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D9E70221F2CD5B0008047C8 /* AppDelegate.swift */,
+				3D9E702E1F2CD5B0008047C8 /* Info.plist */,
+				3D9E70291F2CD5B0008047C8 /* Assets.xcassets */,
+				3D9C9A321F2F1F19008F79F0 /* private-keys.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D9C9A311F2F1E4E008F79F0 /* UMADemoProject */ = {
+			isa = PBXGroup;
+			children = (
+				3D9C9A2F1F2F1D11008F79F0 /* Supporting Files */,
+				3D9E70241F2CD5B0008047C8 /* MainViewController.swift */,
+				3D9E70381F2CDD1F008047C8 /* MapKitTryViewController.swift */,
+				3D9E703A1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift */,
+				3D9E703C1F2CDD3B008047C8 /* MapBoxTryViewController.swift */,
+				3DF60DC31F2CEC2200A9D701 /* UMATestViewController.swift */,
+				3D9C9A341F2F1FBE008F79F0 /* PrivateKeyService.swift */,
+				3D9E70261F2CD5B0008047C8 /* Main.storyboard */,
+				3D9E702B1F2CD5B0008047C8 /* LaunchScreen.storyboard */,
+			);
+			path = UMADemoProject;
+			sourceTree = "<group>";
+		};
 		3D9E70161F2CD5B0008047C8 = {
 			isa = PBXGroup;
 			children = (
 				3D9E70211F2CD5B0008047C8 /* UniversalMapAdapter */,
 				3D9E70201F2CD5B0008047C8 /* Products */,
+				C20C7B21F2231688442540F3 /* Pods */,
+				F6B7456277E0D16CBAA06782 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +102,36 @@
 		3D9E70211F2CD5B0008047C8 /* UniversalMapAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				3D9E70221F2CD5B0008047C8 /* AppDelegate.swift */,
-				3D9E70241F2CD5B0008047C8 /* ViewController.swift */,
-				3D9E70261F2CD5B0008047C8 /* Main.storyboard */,
-				3D9E70291F2CD5B0008047C8 /* Assets.xcassets */,
-				3D9E702B1F2CD5B0008047C8 /* LaunchScreen.storyboard */,
-				3D9E702E1F2CD5B0008047C8 /* Info.plist */,
+				3D9C9A311F2F1E4E008F79F0 /* UMADemoProject */,
+				3D9E70341F2CD675008047C8 /* UMA */,
 			);
 			path = UniversalMapAdapter;
+			sourceTree = "<group>";
+		};
+		3D9E70341F2CD675008047C8 /* UMA */ = {
+			isa = PBXGroup;
+			children = (
+				3D9E70351F2CD70A008047C8 /* UMAMapView.swift */,
+			);
+			name = UMA;
+			path = UniversalMapAdapter;
+			sourceTree = "<group>";
+		};
+		C20C7B21F2231688442540F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9AD6E497A1F570DE1F34C56 /* Pods-UniversalMapAdapter.debug.xcconfig */,
+				4311EBB954EC6C4AC835B709 /* Pods-UniversalMapAdapter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6B7456277E0D16CBAA06782 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				497B2C5A2C98EF2FE2055CC0 /* Pods_UniversalMapAdapter.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +141,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D9E70311F2CD5B0008047C8 /* Build configuration list for PBXNativeTarget "UniversalMapAdapter" */;
 			buildPhases = (
+				07B8FF2CBD5E732582C5B7A1 /* [CP] Check Pods Manifest.lock */,
 				3D9E701B1F2CD5B0008047C8 /* Sources */,
 				3D9E701C1F2CD5B0008047C8 /* Frameworks */,
 				3D9E701D1F2CD5B0008047C8 /* Resources */,
+				F4250BC8265A4F584057239C /* [CP] Embed Pods Frameworks */,
+				55BCB769CB20206DED808210 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9C9A331F2F1F19008F79F0 /* private-keys.plist in Resources */,
 				3D9E702D1F2CD5B0008047C8 /* LaunchScreen.storyboard in Resources */,
 				3D9E702A1F2CD5B0008047C8 /* Assets.xcassets in Resources */,
 				3D9E70281F2CD5B0008047C8 /* Main.storyboard in Resources */,
@@ -132,13 +206,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07B8FF2CBD5E732582C5B7A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		55BCB769CB20206DED808210 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniversalMapAdapter/Pods-UniversalMapAdapter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4250BC8265A4F584057239C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniversalMapAdapter/Pods-UniversalMapAdapter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3D9E701B1F2CD5B0008047C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9E70251F2CD5B0008047C8 /* ViewController.swift in Sources */,
+				3D9E70391F2CDD1F008047C8 /* MapKitTryViewController.swift in Sources */,
+				3D9E703D1F2CDD3B008047C8 /* MapBoxTryViewController.swift in Sources */,
+				3DF60DC41F2CEC2200A9D701 /* UMATestViewController.swift in Sources */,
+				3D9E70251F2CD5B0008047C8 /* MainViewController.swift in Sources */,
 				3D9E70231F2CD5B0008047C8 /* AppDelegate.swift in Sources */,
+				3D9E703B1F2CDD2C008047C8 /* GoogleMapsTryViewController.swift in Sources */,
+				3D9E70361F2CD70A008047C8 /* UMAMapView.swift in Sources */,
+				3D9C9A351F2F1FBE008F79F0 /* PrivateKeyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +389,11 @@
 		};
 		3D9E70321F2CD5B0008047C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9AD6E497A1F570DE1F34C56 /* Pods-UniversalMapAdapter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2N6B529U6S;
-				INFOPLIST_FILE = UniversalMapAdapter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/UniversalMapAdapter/UMADemoProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.UniversalMapAdapter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,10 +403,11 @@
 		};
 		3D9E70331F2CD5B0008047C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4311EBB954EC6C4AC835B709 /* Pods-UniversalMapAdapter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2N6B529U6S;
-				INFOPLIST_FILE = UniversalMapAdapter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/UniversalMapAdapter/UMADemoProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.UniversalMapAdapter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +434,7 @@
 				3D9E70331F2CD5B0008047C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
